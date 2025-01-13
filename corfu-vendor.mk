@@ -1,15 +1,25 @@
 PRODUCT_SOONG_NAMESPACES += \
     vendor/motorola/corfu
 
+PRODUCT_PACKAGES += \
+    moto-telephony \
+    mediatek-ims-oem-plugin \
+    mediatek-ims-base \
+    mediatek-framework \
+    mediatek-common \
+    ImsService \
+    android.hardware.neuralnetworks@1.3-service-mtk-gpu \
+    gnss-default \
+    gnss@2.1-service \
+    lbs_hidl_service@1.0 \
+    manifest_android.hardware.drm@1.4-service.widevine \
+    manifest_hwcomposer \
+    manifest_media_c2_V1_1_dolby \
+    vendor.dolby.hardware.dms
+
 
 PRODUCT_COPY_FILES += \
-    proprietary/system/priv-app/ImsService/ImsService.apk:$(TARGET_COPY_OUT_SYSTEM)/priv-app/ImsService/ImsService.apk \
     proprietary/system/etc/permissions/moto-telephony.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/moto-telephony.xml \
-    proprietary/system/framework/mediatek-common.jar:$(TARGET_COPY_OUT_SYSTEM)/framework/mediatek-common.jar \
-    proprietary/system/framework/mediatek-framework.jar:$(TARGET_COPY_OUT_SYSTEM)/framework/mediatek-framework.jar \
-    proprietary/system/framework/mediatek-ims-base.jar:$(TARGET_COPY_OUT_SYSTEM)/framework/mediatek-ims-base.jar \
-    proprietary/system/framework/mediatek-ims-oem-plugin.jar:$(TARGET_COPY_OUT_SYSTEM)/framework/mediatek-ims-oem-plugin.jar \
-    proprietary/system/framework/moto-telephony.jar:$(TARGET_COPY_OUT_SYSTEM)/framework/moto-telephony.jar \
     proprietary/system/lib64/libdrmframework_jni.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libdrmframework_jni.so \
     proprietary/system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.mediatek.hardware.videotelephony@1.0.so \
     proprietary/vendor/app/mcRegistry/020b0000000000000000000000000000.drbin:$(TARGET_COPY_OUT_VENDOR)/app/mcRegistry/020b0000000000000000000000000000.drbin \
@@ -1063,14 +1073,6 @@ PRODUCT_COPY_FILES += \
     proprietary/vendor/etc/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     proprietary/vendor/etc/seccomp_policy/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
     proprietary/vendor/etc/seccomp_policy/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy \
-    proprietary/vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-mtk-gpu.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-mtk-gpu.xml \
-    proprietary/vendor/etc/vintf/manifest/gnss-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/gnss-default.xml \
-    proprietary/vendor/etc/vintf/manifest/gnss@2.1-service.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/gnss@2.1-service.xml \
-    proprietary/vendor/etc/vintf/manifest/lbs_hidl_service@1.0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/lbs_hidl_service@1.0.xml \
-    proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml \
-    proprietary/vendor/etc/vintf/manifest/manifest_hwcomposer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_hwcomposer.xml \
-    proprietary/vendor/etc/vintf/manifest/manifest_media_c2_V1_1_dolby.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_media_c2_V1_1_dolby.xml \
-    proprietary/vendor/etc/vintf/manifest/vendor.dolby.hardware.dms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.dolby.hardware.dms.xml \
     proprietary/vendor/firmware/BT_FW.cfg:$(TARGET_COPY_OUT_VENDOR)/firmware/BT_FW.cfg \
     proprietary/vendor/firmware/WIFI_RAM_CODE_soc1_0_1a_1.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/WIFI_RAM_CODE_soc1_0_1a_1.bin \
     proprietary/vendor/firmware/WMT_SOC.cfg:$(TARGET_COPY_OUT_VENDOR)/firmware/WMT_SOC.cfg \
@@ -1097,7 +1099,6 @@ PRODUCT_COPY_FILES += \
     proprietary/vendor/firmware/st21nfc_fw7.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/st21nfc_fw7.bin \
     proprietary/vendor/firmware/txpowerctrl.cfg:$(TARGET_COPY_OUT_VENDOR)/firmware/txpowerctrl.cfg \
     proprietary/vendor/firmware/wifi.cfg:$(TARGET_COPY_OUT_VENDOR)/firmware/wifi.cfg \
-    proprietary/vendor/framework/com.fingerprints.extension.jar:$(TARGET_COPY_OUT_VENDOR)/framework/com.fingerprints.extension.jar \
     proprietary/vendor/lib/AVCSecureVdecCA.so:$(TARGET_COPY_OUT_VENDOR)/lib/AVCSecureVdecCA.so \
     proprietary/vendor/lib/AVCSecureVencCA.so:$(TARGET_COPY_OUT_VENDOR)/lib/AVCSecureVencCA.so \
     proprietary/vendor/lib/VP9SecureVdecCA.so:$(TARGET_COPY_OUT_VENDOR)/lib/VP9SecureVdecCA.so \
@@ -1447,37 +1448,4 @@ PRODUCT_COPY_FILES += \
     proprietary/vendor/lib/mt6768/libdpframework.so:$(TARGET_COPY_OUT_VENDOR)/lib/mt6768/libdpframework.so \
     proprietary/vendor/lib/mt6768/libmtk_drvb.so:$(TARGET_COPY_OUT_VENDOR)/lib/mt6768/libmtk_drvb.so \
     proprietary/vendor/lib/mt6768/libnir_neon_driver.so:$(TARGET_COPY_OUT_VENDOR)/lib/mt6768/libnir_neon_driver.so \
-    proprietary/vendor/lib/mt6768/libpq_prot.so:$(TARGET_COPY_OUT_VENDOR)/lib/mt6768/libpq_prot.so \
-    proprietary/vendor/lib/modules/aw9610x.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/aw9610x.ko \
-    proprietary/vendor/lib/modules/bq2597x_mmi_extqc3p.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/bq2597x_mmi_extqc3p.ko \
-    proprietary/vendor/lib/modules/bt_drv_connac1x.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/bt_drv_connac1x.ko \
-    proprietary/vendor/lib/modules/connfem.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/connfem.ko \
-    proprietary/vendor/lib/modules/ets_fps.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/ets_fps.ko \
-    proprietary/vendor/lib/modules/exfat.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/exfat.ko \
-    proprietary/vendor/lib/modules/fmradio_drv_mt6631.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/fmradio_drv_mt6631.ko \
-    proprietary/vendor/lib/modules/focaltech_mtk_v2_mmi.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/focaltech_mtk_v2_mmi.ko \
-    proprietary/vendor/lib/modules/fpc_mtk_tee.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/fpc_mtk_tee.ko \
-    proprietary/vendor/lib/modules/fpsgo.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/fpsgo.ko \
-    proprietary/vendor/lib/modules/fs16xx_dlkm.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/fs16xx_dlkm.ko \
-    proprietary/vendor/lib/modules/goodix_mtk_gtx8_gesture_mmi.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/goodix_mtk_gtx8_gesture_mmi.ko \
-    proprietary/vendor/lib/modules/goodix_mtk_gtx8_mmi.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/goodix_mtk_gtx8_mmi.ko \
-    proprietary/vendor/lib/modules/goodix_mtk_gtx8_ts_tools_mmi.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/goodix_mtk_gtx8_ts_tools_mmi.ko \
-    proprietary/vendor/lib/modules/goodix_mtk_tee.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/goodix_mtk_tee.ko \
-    proprietary/vendor/lib/modules/gps_drv.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/gps_drv.ko \
-    proprietary/vendor/lib/modules/met.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/met.ko \
-    proprietary/vendor/lib/modules/mmi_info.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/mmi_info.ko \
-    proprietary/vendor/lib/modules/mmi_parallel_charger_extqc3p.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/mmi_parallel_charger_extqc3p.ko \
-    proprietary/vendor/lib/modules/modules.alias:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.alias \
-    proprietary/vendor/lib/modules/modules.dep:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.dep \
-    proprietary/vendor/lib/modules/modules.load:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.load \
-    proprietary/vendor/lib/modules/modules.softdep:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.softdep \
-    proprietary/vendor/lib/modules/moto_f_usbnet.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/moto_f_usbnet.ko \
-    proprietary/vendor/lib/modules/qpnp_adaptive_charge.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/qpnp_adaptive_charge.ko \
-    proprietary/vendor/lib/modules/sensors_class.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/sensors_class.ko \
-    proprietary/vendor/lib/modules/st21nfc.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/st21nfc.ko \
-    proprietary/vendor/lib/modules/trace_mmstat.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/trace_mmstat.ko \
-    proprietary/vendor/lib/modules/udc_lib.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/udc_lib.ko \
-    proprietary/vendor/lib/modules/utags.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/utags.ko \
-    proprietary/vendor/lib/modules/wlan_drv_gen4m.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/wlan_drv_gen4m.ko \
-    proprietary/vendor/lib/modules/wmt_chrdev_wifi.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/wmt_chrdev_wifi.ko \
-    proprietary/vendor/lib/modules/wmt_drv.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/wmt_drv.ko
+    proprietary/vendor/lib/mt6768/libpq_prot.so:$(TARGET_COPY_OUT_VENDOR)/lib/mt6768/libpq_prot.so 
